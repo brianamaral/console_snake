@@ -18,7 +18,7 @@ struct food{
 	bool spawned;	
 };
 
-void printar_grind(char grind[15][30],struct player *player,struct food food,int size){
+void print_grind(char grind[15][30],struct player *player,struct food food,int size){
 	int i;
 	int j;
 	int k;
@@ -61,7 +61,7 @@ bool facing_right(struct player *player){
 	if(player->y_dir == 1){return true;}
 }
 
-void controlar_player(struct player *player){
+void control_player(struct player *player){
 		if(kbhit()){
 			int key = getch();
 			if(facing_up(player) || facing_down(player)){
@@ -85,7 +85,7 @@ void controlar_player(struct player *player){
 			
 		}		
 	}
-void movimentar_player(struct player *player,int size){
+void move_player(struct player *player,int size){
 	
 	int i;
 	int past_x_pos = player[0].position_x;
@@ -199,10 +199,10 @@ int main(int argc, char *argv[]) {
 		}
 		size = verify_colisions(player,foodP,size);
 		food_position(foodP);		
-		controlar_player(player);
-		movimentar_player(player,size);
+		control_player(player);
+		move_player(player,size);
 		
-		printar_grind(grind,player,food,size);			
+		print_grind(grind,player,food,size);			
 		wait(1000/15);			
 	}
 }
