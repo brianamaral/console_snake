@@ -61,6 +61,8 @@ bool facing_right(struct player *player){
 	if(player->y_dir == 1){return true;}
 }
 
+
+
 void control_player(struct player *player){
 		if(kbhit()){
 			int key = getch();
@@ -177,7 +179,7 @@ int main(int argc, char *argv[]) {
 		
 	struct food food,*foodP;
 	foodP = &food;
-		
+	int test = 1;
 	while(true){
 		if(game_over(player,size)){
 			size = 1;
